@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bug Report</title>
+    <link rel="stylesheet" href="bug_report.css">
+</head>
+
+<body>
+    <header>
+        <h1 class="header-text">TO THE NEW</h1>
+        <ul class="header-links">
+            <li>Home</li>
+            <li>Quick Help</li>
+        </ul>
+    </header>
+
+    <form class="form-container">
+
+        <div class="form-heading">Bug Report</div>
+
+        <div class="form-body">
+
+            <div class="form-field">
+                <label>Title *</label>
+                <input type="text">
+            </div>
+
+            <div class="form-field">
+                <label>Description *</label>
+                <textarea></textarea>
+            </div>
+
+            <div class="form-field">
+                <label>Operating system</label>
+                <select>
+                    <option>Windows XP</option>
+                    <option>MacOS</option>
+                    <option>Linux</option>
+                </select>
+            </div>
+
+            <div class="form-field">
+                <label>Product *</label>
+                <select>
+                    <option>Formoid</option>
+                </select>
+            </div>
+
+            <div class="form-field">
+                <label>Version *</label>
+                <input type="text">
+            </div>
+
+            <div class="form-field">
+                <label>License</label>
+
+                <div class="form-opt">
+                    <label>
+                        <input type="radio" name="license">
+                        Free
+                    </label>
+
+                    <label>
+                        <input type="radio" name="license">
+                        Business
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-field">
+                <label>Severity</label>
+                <select>
+                    <option>Critical</option>
+                    <option>Major</option>
+                    <option>Minor</option>
+                    <option>Trivial</option>
+                </select>
+            </div>
+
+            <div class="form-field">
+                <label>Attachments</label>
+                <div class="file-upload">
+                    <span>No file selected</span>
+                    <label class="file-btn">
+                        Choose File
+                        <input type="file" hidden>
+                    </label>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="form-footer">
+            <button class="form-button">Send</button>
+        </div>
+
+    </form>
+</body>
+
+</html>
