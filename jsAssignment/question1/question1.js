@@ -1,5 +1,5 @@
 function calculateSI(event) {
-    event.preventDefault(); // stop form refresh
+    event.preventDefault();
 
     var amount = parseFloat(document.getElementById("amount").value);
     var rate = parseFloat(document.getElementById("rate").value);
