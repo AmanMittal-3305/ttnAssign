@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Assignment</title>
+    <link rel="stylesheet" href="question1.css">
+</head>
+
+<body>
+
+    <h1>JS Assignment</h1>
+
+    <div class="first-question">
+        <h2>First Question</h2>
+
+        <form onsubmit="calculateSI(event)">
+            <label>
+                Amount:
+                <input type="number" id="amount" required>
+            </label><br><br>
+
+            <label>
+                Rate of Interest (%):
+                <input type="number" id="rate" required>
+            </label><br><br>
+
+            <label>
+                Time (in years):
+                <input type="number" id="time" required>
+            </label><br><br>
+
+            <button type="submit">Calculate</button>
+        </form>
+
+        <p class="detailsInterest"></p>
+    </div>
+
+    <script src="question1.js"></script>
+</body>
+
+</html>
