@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Assignment</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <h1>JS Assignment 2</h1>
+
+    <div class="question">
+        <h2>Calculator</h2>
+
+        <form onsubmit="calculate(event)">
+
+            <label>
+                Value of a:
+                <input type="number" id="first-number">
+            </label><br><br>
+
+            <label>
+                Value of b:
+                <input type="number" id="second-number">
+            </label><br><br>
+
+            <button type="button" onclick="inputValues()" id="read-btn">Read</button>
+
+            <button type="button" id="add-btn" onclick="addValues()">Add</button>
+            <button onclick="subtractValues()" id="subtract-btn" type="button">Subtract</button>
+            <button onclick="multiplyValues()" id="mutiply-btn" type="button">Multiply</button>
+        </form>
+
+        <p class="result"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
