@@ -2,20 +2,19 @@ const calculator = {
     temp: undefined,
 
     read() {
-        try {
-            this.temp = Number(prompt("Enter temperature in Celsius:"));
+        this.temp = Number(prompt("Enter temperature in Celsius:"));
 
-            if (isNaN(this.temp)) {
-                throw "Invalid input! Please enter numbers only.";
-            }
-
-            document.getElementById("temperature").value = this.temp;
+        if (isNaN(this.temp)) {
             document.querySelector(".result").innerText =
-                "Temperature read successfully.";
-
-        } catch (err) {
-            document.querySelector(".result").innerText = err;
+                "Invalid input! Please enter numbers only.";
+            throw "Invalid input! Please enter numbers only.";
         }
+
+        document.getElementById("temperature").value = this.temp;
+        document.querySelector(".result").innerText =
+            "Temperature read successfully.";
+
+
     },
 
     fahrenheit() {

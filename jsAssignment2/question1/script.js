@@ -3,23 +3,22 @@ const calculator = {
     b: 0,
 
     read() {
-        try {
-            this.a = Number(prompt("Enter value of a:"));
-            this.b = Number(prompt("Enter value of b:"));
+        this.a = Number(prompt("Enter value of a:"));
+        this.b = Number(prompt("Enter value of b:"));
 
-            if (isNaN(this.a) || isNaN(this.b)) {
-                throw "Invalid input! Please enter numbers only.";
-            }
-
-            document.getElementById("first-number").value = this.a;
-            document.getElementById("second-number").value = this.b;
-
+        if (isNaN(this.a) || isNaN(this.b)) {
             document.querySelector(".result").innerText =
-                "Values read successfully";
-
-        } catch (err) {
-            document.querySelector(".result").innerText = err;
+                "Invalid input! Please enter numbers only.";
+            throw "Invalid input! Please enter numbers only.";
         }
+
+        document.getElementById("first-number").value = this.a;
+        document.getElementById("second-number").value = this.b;
+
+        document.querySelector(".result").innerText =
+            "Values read successfully";
+
+
     },
 
     add() {
