@@ -1,65 +1,74 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import UserContext from "./UserContext";
+import UserProfile from "./UserProfile";
 import './LoginForm.css';
 
-function UpdateProfile() {
-  const { user, updateUser } = useContext(UserContext);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-
-  useEffect(() => {
-    if (user) {
-      setName(user.name);
-      setEmail(user.email);
-    }
-  }, [user]);
+function LoginForm() {
+  const { login, logout, user } = useContext(UserContext);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!name.trim() || !email.trim()) {
-      setMessage("Name and email cannot be empty");
+    if (username.trim() === "" || password.trim() === "") {
+      setError("Username and Password are required");
       return;
     }
 
-    const updatedData = {
-      ...user,
-      name: name.trim(),
-      email: email.trim(),
+    const userData = {
+      name: username.trim(),
+      email: username.trim() + "@example.com",
     };
 
-    updateUser(updatedData);
-    setMessage("Profile updated successfully!");
+    login(userData);
+    setUsername("");
+    setPassword("");
+    setError("");
   };
 
-  if (!user) {
-    return <p>Please login to update your profile.</p>;
-  }
+  const handleLogout = () => {
+    logout();
+  };
 
   return (
-    <div className="update-profile">
-      <h2>Update Profile</h2>
-      {message && <p className="message">{message}</p>}
+    <div className="login-form">
+      <h2>{user ? `Welcome, ${user.name}` : "Login"}</h2>
+
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
+        {!user && (
+          <>
+            {error && <p style={{ color: "red" }}>{error}</p>}
 
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
+            <input
+              type="text"
+              placeholder="Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
 
-        <button type="submit">Save Changes</button>
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+
+            <button type="submit">Login</button>
+          </>
+        )}
+
+        {user && (
+          <button type="button" onClick={handleLogout}>
+            Logout
+          </button>
+        )}
       </form>
+
+      <UserProfile />
     </div>
   );
 }
 
-export default UpdateProfile;
+export default LoginForm;
