@@ -1,60 +1,65 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import UserContext from "./UserContext";
-import UserProfile from "./UserProfile";
 import './LoginForm.css';
 
-function LoginForm() {
-  const { login, logout, user } = useContext(UserContext);
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+function UpdateProfile() {
+  const { user, updateUser } = useContext(UserContext);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    if (user) {
+      setName(user.name);
+      setEmail(user.email);
+    }
+  }, [user]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const userData = {
-      name: username,
-      email: username + "@example.com",
+    if (!name.trim() || !email.trim()) {
+      setMessage("Name and email cannot be empty");
+      return;
+    }
+
+    const updatedData = {
+      ...user,
+      name: name.trim(),
+      email: email.trim(),
     };
 
-    login(userData);
-    setUsername("");
-    setPassword("");
+    updateUser(updatedData);
+    setMessage("Profile updated successfully!");
   };
 
-  const handleLogout = () => {
-    logout();
-  };
+  if (!user) {
+    return <p>Please login to update your profile.</p>;
+  }
 
   return (
-    <div className="login-form">
-      <h2>{user ? `Welcome, ${user.name}` : "Login"}</h2>
-
+    <div className="update-profile">
+      <h2>Update Profile</h2>
+      {message && <p className="message">{message}</p>}
       <form onSubmit={handleSubmit}>
-        {!user && (
-          <>
-            <input
-              type="text"
-              placeholder="Username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <button type="submit">Login</button>
-          </>
-        )}
-        {user && (
-          <button type="button" onClick={handleLogout}>Logout</button>
-        )}
-      </form>
+        <input
+          type="text"
+          placeholder="Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
 
-      <UserProfile />
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+
+        <button type="submit">Save Changes</button>
+      </form>
     </div>
   );
 }
 
-export default LoginForm;
+export default UpdateProfile;
