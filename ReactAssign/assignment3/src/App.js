@@ -30,7 +30,7 @@ function App() {
       <Routes>
         <Route path="/" element={<ThemePage />} />
         <Route path="/login" element={<Login onLogin={handleLogin} isLoggedIn = {isLoggedIn} setIsLoggedIn = {setIsLoggedIn} />} />
-        <Route path="/second-login-form" element={<LoginForm />} />
+        <Route path="/second-login-form" element={<LoginForm onLogin={handleLogin} isLoggedIn = {isLoggedIn} setIsLoggedIn = {setIsLoggedIn} />} />
 
       </Routes>
     </div>
