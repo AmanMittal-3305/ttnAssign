@@ -1,0 +1,45 @@
+{
+  "teachers": [
+    { "id": 1, "name": "Rahul Sharma", "subject": "Math" },
+    { "id": 2, "name": "Priya Verma", "subject": "Science" },
+    { "id": 3, "name": "Amit Singh", "subject": "English" },
+    { "id": 4, "name": "Neha Gupta", "subject": "History" },
+    { "id": 5, "name": "Vikram Joshi", "subject": "Computer" }
+  ],
+  "students": [
+    { "id": 1, "name": "Student1", "teacherId": 1 },
+    { "id": 2, "name": "Student2", "teacherId": 1 },
+    { "id": 3, "name": "Student3", "teacherId": 1 },
+    { "id": 4, "name": "Student4", "teacherId": 1 },
+    { "id": 5, "name": "Student5", "teacherId": 1 },
+
+    { "id": 6, "name": "Student6", "teacherId": 2 },
+    { "id": 7, "name": "Student7", "teacherId": 2 },
+    { "id": 8, "name": "Student8", "teacherId": 2 },
+    { "id": 9, "name": "Student9", "teacherId": 2 },
+    { "id": 10, "name": "Student10", "teacherId": 2 },
+
+    { "id": 11, "name": "Student11", "teacherId": 3 },
+    { "id": 12, "name": "Student12", "teacherId": 3 },
+    { "id": 13, "name": "Student13", "teacherId": 3 },
+    { "id": 14, "name": "Student14", "teacherId": 3 },
+    { "id": 15, "name": "Student15", "teacherId": 3 },
+
+    { "id": 16, "name": "Student16", "teacherId": 4 },
+    { "id": 17, "name": "Student17", "teacherId": 4 },
+    { "id": 18, "name": "Student18", "teacherId": 4 },
+    { "id": 19, "name": "Student19", "teacherId": 4 },
+    { "id": 20, "name": "Student20", "teacherId": 4 },
+
+    { "id": 21, "name": "Student21", "teacherId": 5 },
+    { "id": 22, "name": "Student22", "teacherId": 5 },
+    { "id": 23, "name": "Student23", "teacherId": 5 },
+    { "id": 24, "name": "Student24", "teacherId": 5 },
+    { "id": 25, "name": "Student25", "teacherId": 5 },
+    { "id": 26, "name": "Student26", "teacherId": 5 },
+    { "id": 27, "name": "Student27", "teacherId": 5 },
+    { "id": 28, "name": "Student28", "teacherId": 5 },
+    { "id": 29, "name": "Student29", "teacherId": 5 },
+    { "id": 30, "name": "Student30", "teacherId": 5 }
+  ]
+}
