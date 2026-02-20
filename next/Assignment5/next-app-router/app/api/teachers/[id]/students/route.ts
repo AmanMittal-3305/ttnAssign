@@ -7,7 +7,7 @@ export async function GET(
 ) {
   console.log("Route working");
 
-  const params = await context.params;   // 👈 await here
+  const params = await context.params;  
   const teacherId = Number(params.id);
 
   console.log("Teacher ID:", teacherId);

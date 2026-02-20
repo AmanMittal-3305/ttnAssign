@@ -48,22 +48,3 @@ export async function GET() {
   });
 }
 
-// export async function POST(request: Request) {
-//     const body = await request.json();
-
-//     const newData = {
-//         id: Math.random(),
-//         name: body.name,
-//     };
-
-//     data.push(newData);
-
-//     return NextResponse.json(newData);
-// }
-
-// export async function DELETE(request: Request) {
-//     const body = await request.json();
-//     const { id } = body;
-//     data = data.filter((blog) => blog.id !== id);
-//     return NextResponse.json({ message: "Deleted successfully" });
-// }
