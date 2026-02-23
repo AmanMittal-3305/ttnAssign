@@ -11,7 +11,7 @@ const DashboardPage = () => {
     }
   const { data: session, status } = useSession();
   const router = useRouter();
-  // const [users, setUsers] = useState<User[]>([]);
+  const [users, setUsers] = useState<User[]>([]);
 
   useEffect(() => {
     if (status === "unauthenticated") {
@@ -19,15 +19,15 @@ const DashboardPage = () => {
     }
   }, [status, router]);
 
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     const res = await fetch("https://jsonplaceholder.typicode.com/users");
-  //     const data = await res.json();
-  //     setUsers(data);
-  //   }
+  useEffect(() => {
+    async function fetchData() {
+      const res = await fetch("https://jsonplaceholder.typicode.com/users");
+      const data = await res.json();
+      setUsers(data);
+    }
 
-  //   fetchData();
-  // }, []);
+    fetchData();
+  }, []);
 
   if (status === "loading") {
     return <div>Loading...</div>;
@@ -47,7 +47,13 @@ const DashboardPage = () => {
       <button onClick={handleLogout}>Sign out</button>
 
 
-     
+      <h2>Users:</h2>
+      {users.map((user) => (
+        <div key={user.id}>
+          <p>{user.name}</p>
+        </div>
+      ))}
+    
     </>
   );
 };
